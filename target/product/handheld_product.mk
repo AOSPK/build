@@ -32,7 +32,7 @@ PRODUCT_PACKAGES += \
     Music \
     OneTimeInitializer \
     Provision \
-    QuickSearchBox \
+#    QuickSearchBox \
     Settings \
     SettingsIntelligence \
     StorageManager \
