@@ -825,7 +825,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.AppendExtra("ifelse(is_mounted(\"/system\"), unmount(\"/system\"));")
 
   android_version = target_info.GetBuildProp("ro.build.version.release")
-  build_type = target_info.GetBuildProp("ro.custom.apps")
+  build_type = target_info.GetBuildProp("ro.custom.apps.version")
   build_id = target_info.GetBuildProp("ro.build.id")
   build_date = target_info.GetBuildProp("ro.custom.build.date")
   security_patch = target_info.GetBuildProp("ro.build.version.security_patch")
