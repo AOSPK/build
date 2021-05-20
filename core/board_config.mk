@@ -191,6 +191,12 @@ ifeq ($(TARGET_IS_64_BIT),true)
   endif
 endif
 
+ifneq ($(filter OFFICIAL,$(CUSTOM_BUILD_TYPE)),)
+ifneq ($(filter androidboot.selinux=permissive,$(INTERNAL_KERNEL_CMDLINE)),)
+$(error Permissive selinux in official builds is not allowed)
+endif
+endif
+
 # "ro.product.cpu.abilist32" and "ro.product.cpu.abilist64" are
 # comma separated lists of the 32 and 64 bit ABIs (in order of
 # preference) that the target supports. If TARGET_CPU_ABI_LIST_{32,64}_BIT
