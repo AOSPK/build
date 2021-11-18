@@ -1912,3 +1912,10 @@ function repopick() {
     T=$(gettop)
     $T/vendor/aosp/build/tools/repopick.py $@
 }
+
+function kraken_prebuilts() {
+    if [ -z ${KRAKEN_PREBUILTS} ]; then
+        bash $ANDROID_BUILD_TOP/packages/apps/CustomPrebuilts/CustomPrebuilts.sh
+        export KRAKEN_PREBUILTS=1
+    fi
+}
