@@ -749,6 +749,8 @@ function lunch()
     set_stuff_for_environment
     [[ -n "${ANDROID_QUIET_BUILD:-}" ]] || printconfig
     destroy_build_var_cache
+
+    kraken_prebuilts
 }
 
 unset COMMON_LUNCH_CHOICES_CACHE
@@ -1907,4 +1909,11 @@ export ANDROID_BUILD_TOP=$(gettop)
 function repopick() {
     T=$(gettop)
     $T/vendor/aosp/build/tools/repopick.py $@
+}
+
+function kraken_prebuilts() {
+    if [ -z ${KRAKEN_PREBUILTS} ]; then
+        bash $ANDROID_BUILD_TOP/packages/apps/KrakenPrebuilts/KrakenPrebuilts.sh
+        export KRAKEN_PREBUILTS=1
+    fi
 }
