@@ -5423,6 +5423,7 @@ otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
 bacon: otapackage
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(KRAKEN_TARGET_PACKAGE)
 	$(hide) $(MD5SUM) $(KRAKEN_TARGET_PACKAGE) > $(KRAKEN_TARGET_PACKAGE).md5sum
+	$(hide) ./vendor/aosp/tools/generate_json.sh $(KRAKEN_TARGET_PACKAGE) $(KRAKEN_MOD_VERSION) $(TARGET_DEVICE) $(KRAKEN_BUILD_TYPE) $(KRAKEN_MOD_VERSION_PROP)
 	@echo -e ""
 	@echo -e ""
 	@echo -e "	 ██╗  ██╗██████╗  █████╗ ██╗  ██╗███████╗███╗   ██╗"
